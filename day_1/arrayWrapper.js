@@ -11,9 +11,34 @@ obj1 + obj2; // 10
 
 const wrapper = (arr, ope) => {
   let val = arr.flat();
- 
 
-  
+  if (ope.toLowerCase() === "add") {
+    return val.reduce((acc, red) => {
+      return acc + red;
+    }, 0);
+  } else if (ope.toLowerCase() === "string") {
+    return val.toString();
+  }
 };
 
-console.log(wrapper([[1,2],[3,4]],'add'))
+console.log(
+  wrapper(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    "string"
+  )
+);
+
+console.log(
+  wrapper(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    "add"
+  )
+);
+
+
