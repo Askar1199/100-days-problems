@@ -20,4 +20,26 @@ Explanation: The two input promises resolve with the values of 10 and -12 respec
 
 //  code --
 
-var addTwoPromises = async function (promise1, promise2) {};
+var addTwoPromises = async function (promise1, promise2) {
+// step 1
+    // try {
+    //     const [val1,val2]=Promise.all([promise1,promise2])
+    //     return val1+val2
+    // }
+    // catch(err){
+    //     console.log(err)
+    //     throw err
+    // }
+
+
+    // step 2
+    let val1=await promise1
+    let val2 =await promise2
+
+    return val1+val2
+};
+
+const ex1=new Promise(resolve => setTimeout(() => resolve(2), 20))
+const ex2 = new Promise((resolve) => setTimeout(() => resolve(5), 60));
+
+console.log(addTwoPromises(ex1,ex2))

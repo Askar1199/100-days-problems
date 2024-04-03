@@ -25,4 +25,12 @@ Explanation: arr is sorted in ascending order by number at index=1.
 
 // code --
 
-var sortBy = function (arr, fn) {};
+var sortBy = function (arr, fn) {
+    return arr.sort((a,b)=>fn(a)-fn(b))
+};
+
+console.log(sortBy([{ x: 1 }, { x: 0 }, { x: -1 }], (fn = (d) => d.x)));
+
+console.log(sortBy([[3, 4], [5, 2], [10, 1]], fn = (x) => x[1]))
+
+console.log(sortBy([5,4,3,2,1],(fn=x=>x)))
