@@ -86,4 +86,7 @@ Cancelled at 180ms
 
 //code--
 
-var cancellable = function (fn, args, t) {};
+var cancellable = function (fn, args, t) {
+   let timer=setInterval(()=>{fn(...args),t})
+   return ()=>cancel=clearInterval(timer)
+};

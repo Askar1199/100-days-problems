@@ -49,40 +49,66 @@ class Calculator {
   /**
    * @param {number} value
    */
-  constructor(value) {}
+  constructor(value) {
+    this.res = value;
+  }
 
   /**
    * @param {number} value
    * @return {Calculator}
    */
-  add(value) {}
+  add(value) {
+    this.res += value;
+    return this;
+  }
 
   /**
    * @param {number} value
    * @return {Calculator}
    */
-  subtract(value) {}
+  subtract(value) {
+    this.res -= value;
+    return this;
+  }
 
   /**
    * @param {number} value
    * @return {Calculator}
    */
-  multiply(value) {}
+  multiply(value) {
+    this.res *= value;
+    return this;
+  }
 
   /**
    * @param {number} value
    * @return {Calculator}
    */
-  divide(value) {}
+  divide(value) {
+    if (value === 0) throw new Error("Division by zero is not allowed");
+    this.res /= value;
+    return this;
+  }
 
   /**
    * @param {number} value
    * @return {Calculator}
    */
-  power(value) {}
+  power(value) {
+    this.res **= value;
+    return this;
+  }
 
   /**
    * @return {number}
    */
-  getResult() {}
+  getResult() {
+    return this.res;
+  }
 }
+
+console.log(new Calculator(10).add(5).subtract(7).getResult());
+
+console.log(new Calculator(2).multiply(5).power(2).getResult());
+
+console.log(new Calculator(20).divide(0).getResult());
